@@ -10,13 +10,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class Joke {
 
-
     private JokeService jokeService;
+
     @Autowired
     public Joke(JokeService jokeService) {
         this.jokeService = jokeService;
     }
-    @RequestMapping("/")
+
+    @RequestMapping({"/",""})
     public String showJoke(Model model){
         model.addAttribute("joke",jokeService.getJoke());
         return "chuckNorris";
